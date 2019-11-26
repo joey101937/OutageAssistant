@@ -115,18 +115,19 @@
 					window.makeAnnotations = d3.annotation()
 						.type(d3.annotationLabel)
 						.annotations(annotations)
-						// .disable(["connector", "subject"])
-						.editMode(true);
+						.disable(["connector", "subject"])
+						//.editMode(true);
 		
 					svg.append("g")
 						.attr("class", "annotation-group")
 						.attr("transform", "translate(25, 0)")
 						.call(makeAnnotations);
 		
-					document.getElementById("editMode").addEventListener("click", function () {
-						makeAnnotations.editMode(!makeAnnotations.editMode()).update(); 
-					});
+					//document.getElementById("editMode").addEventListener("click", function () {
+					//	makeAnnotations.editMode(!makeAnnotations.editMode()).update(); 
+					//});
 				});
+		
 		
 			</script>
 		<br>
