@@ -21,6 +21,7 @@
 
 	<ul id="nav">
 		<li><a href="index.html">CURRENT</a></li>
+		<li><a href="data.html">DATA</a></li>
 		<li><a href="search.html">SEARCH</a></li>
 		<li><a href="about.html">ABOUT</a></li>
 	</ul>
@@ -29,17 +30,10 @@
 	
 	<main>
 	
-		<h2 align="center">OUTAGE VIEWER</h2>
+		<h2 align="center">OUTAGE MAP</h2>
 		<br>
 		<!-- <h3>Outage Visualizations</h3> -->
 
-		<div class="tab">
-			<button class="tablinks" onclick="openCity(event, 'Map')" id="defaultOpen">Map</button>
-			<button class="tablinks" onclick="openCity(event, 'Bar')">Bar Graph</button>
-		  </div>
-		  
-		  <!-- Tab content -->
-		  <div id="Map" class="tabcontent">
 			<svg width="960" height="500"></svg>
 			<script src="https://d3js.org/d3.v4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
@@ -110,62 +104,7 @@
 					});
 
 
-				</script>
-		  </div>
-		  
-		  <div id="Bar" class="tabcontent">
-			<canvas id="myChart"  width="35%" height="15%"></canvas>
-
-			<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-			
-			<script>
-				var ctx = document.getElementById('myChart').getContext('2d');
-				var chart = new Chart(ctx, {
-				// The type of chart we want to create
-				type: 'bar',
-
-				// The data for our dataset
-				data: {
-					labels: ['Mecklenburg', 'Wake', 'Guilford', 'Forsyth', 'Cumberland', 'Durham', 'Buncombe'],
-					datasets: [{
-						label: 'Customers Without Power',
-						backgroundColor: 'rgb(66, 188, 245)',
-						borderColor: 'rgb(66, 188, 245)',
-						data: [4000, 234, 10000, 700, 20, 123, 900]
-					}]
-				},
-
-				// Configuration options go here
-				options: {}
-			});
-			</script>
-		  </div>
-
-		  <script>
-			function openCity(evt, cityName) {
-				// Declare all variables
-				var i, tabcontent, tablinks;
-			
-				// Get all elements with class="tabcontent" and hide them
-				tabcontent = document.getElementsByClassName("tabcontent");
-				for (i = 0; i < tabcontent.length; i++) {
-					tabcontent[i].style.display = "none";
-				}
-			
-				// Get all elements with class="tablinks" and remove the class "active"
-				tablinks = document.getElementsByClassName("tablinks");
-				for (i = 0; i < tablinks.length; i++) {
-					tablinks[i].className = tablinks[i].className.replace(" active", "");
-				}
-			
-				// Show the current tab, and add an "active" class to the button that opened the tab
-				document.getElementById(cityName).style.display = "block";
-				evt.currentTarget.className += " active";
-			}
-				// Get the element with id="defaultOpen" and click on it
-				document.getElementById("defaultOpen").click();
-		  </script>
-		  
+				</script> 
 		<br>
 	<h3>Current Outages</h3>
 	
