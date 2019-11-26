@@ -15,7 +15,7 @@
 
     <body>
 	<header>
-		<h1 id="title">Poopoo Assistant</h1>
+		<h1 id="title">Outage Assistant</h1>
 		<h3 id="subtitle">Outage Information for the Carolinas</h3>
 	</header>
 
@@ -31,7 +31,33 @@
 	
 		<h2 align="center">OUTAGE VIEWER</h2>
 		<br>
-		<h3>Outage Visualizations</h3>
+		<!-- <h3>Outage Visualizations</h3> -->
+		<canvas id="myChart"></canvas>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		
+		<script>
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var chart = new Chart(ctx, {
+		    // The type of chart we want to create
+		    type: 'bar',
+
+		    // The data for our dataset
+		    data: {
+		        labels: ['Mecklenburg', 'Wake', 'Guilford', 'Forsyth', 'Cumberland', 'Durham', 'Buncombe'],
+		        datasets: [{
+		            label: 'Customers Without Power',
+		            backgroundColor: 'rgb(255, 99, 132)',
+		            borderColor: 'rgb(255, 99, 132)',
+		            data: [4000, 234, 10000, 700, 20, 123, 900]
+		        }]
+		    },
+
+		    // Configuration options go here
+		    options: {}
+		});
+		</script>
+
 		<svg width="960" height="500"></svg>
 			<script src="https://d3js.org/d3.v4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
