@@ -1,0 +1,158 @@
+/* HEADER */
+
+#title {
+	font-family: Verdana;
+	text-align: center;
+	color: #007884;
+	font-weight: bold;
+	display: block;
+	font-size: 2em;
+}
+
+#subtitle {
+	font-family: Verdana;
+	text-align: center;
+	font-weight: bold;
+	display: block;
+	color: #1B2526;
+}
+
+
+/* MENU BAR */
+
+#nav{
+	border:1px solid #ccc;
+	border-width:1px 0;
+	list-style:none;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+#nav li {
+	display:inline;
+}
+
+#nav a {
+	display:inline-block;
+	padding:10px;
+}
+
+a {
+	font-family: Verdana;
+	color:#13464B;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+
+/* MAIN CONTENT AREA */
+
+body {
+	position: relative;
+	min-height: 100vh;
+}
+
+main {
+	padding: 25px 100px 75px 100px;
+	padding-bottom: 2.5rem;
+}
+
+
+/*TABLE*/
+
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#current tr:nth-child(even) {
+  background-color: #eee;
+}
+table#current tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#current th {
+  background-color: black;
+  color: white;
+}
+
+/* SEARCH BAR */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.search button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* ABOUT IMAGE */
+
+.group {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+/* FOOTER */
+
+footer {
+  	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+ 	height: 2.5rem; 
+	text-align: center;
+	font-size: 12px;
+
+	/*position:fixed;
+	display: block;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;*/
+}
