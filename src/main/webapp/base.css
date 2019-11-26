@@ -1,7 +1,7 @@
 /* HEADER */
 
 #title {
-	font-family: Verdana;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	text-align: center;
 	color: #007884;
 	font-weight: bold;
@@ -10,7 +10,7 @@
 }
 
 #subtitle {
-	font-family: Verdana;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	text-align: center;
 	font-weight: bold;
 	display: block;
@@ -39,7 +39,7 @@
 }
 
 a {
-	font-family: Verdana;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color:#13464B;
 	text-decoration:none;
 	font-weight:bold;
@@ -49,6 +49,9 @@ a:hover {
 	text-decoration:underline;
 }
 
+p {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* MAIN CONTENT AREA */
 
@@ -141,6 +144,7 @@ form.search::after {
 /* FOOTER */
 
 footer {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   	position: absolute;
   	bottom: 0;
   	width: 100%;
@@ -193,7 +197,7 @@ footer {
 	border-top: none;
 	animation: fadeEffect 1s;
   }
-  
+
 /* Go from zero to full opacity */
   @keyframes fadeEffect {
 	from {opacity: 0;}
