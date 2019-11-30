@@ -40,5 +40,14 @@ public class County implements Serializable {
         this.name = name;
     }
     
-    
+    @Override
+    public String toString() {
+        String name = getName();
+        if (name != null) {
+            return name;
+        } else {
+            return "Unknown County";
+        }
+    }
+
 }

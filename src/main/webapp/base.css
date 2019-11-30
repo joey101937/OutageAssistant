@@ -76,14 +76,18 @@ th, td {
   padding: 15px;
   text-align: left;
 }
-table#current tr:nth-child(even) {
+table tr:nth-child(even) {
   background-color: #eee;
 }
-table#current tr:nth-child(odd) {
+table tr:nth-child(odd) {
  background-color: #fff;
 }
-table#current th {
-  background-color: black;
+table th a{
+  color: white;
+}
+
+table th {
+     background-color: black;
   color: white;
 }
 

@@ -13,11 +13,7 @@
 		<h3 id="subtitle">subtitle goes here :)</h3>
 	</header>
 
-	<ul id="nav">
-		<li><a href="index.jsp">CURRENT</a></li>
-		<li><a href="search.jsp">SEARCH</a></li>
-		<li><a href="about.jsp">ABOUT</a></li>
-	</ul>
+	<%@include file="topNav.jsp"%>
 
 	<br>
 	
@@ -25,45 +21,8 @@
 
 		<h2 align="center">USE FILTERS TO SORT OUTAGES</h2>
 		<br>
-		<table id="current">
-  		<tr>
-    			<th>County</th>
-    			<th>Customers Tracked</th> 
-   			<th>Customers Out</th>
-			<th>Date</th>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
-
-	</table>
+		
+                <%@include file="archiveTable.jsp" %>
 	
 	</main>
 

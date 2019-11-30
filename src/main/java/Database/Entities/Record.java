@@ -7,9 +7,13 @@ package Database.Entities;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,8 +26,6 @@ public class Record implements Serializable {
     @Id
     private int id;
     
-    @Column
-    private int countyId;
     
     @Column
     private int customersServed;
@@ -33,6 +35,10 @@ public class Record implements Serializable {
     
     @Column(name = "time")
     private Timestamp time;
+    
+    @OneToOne
+    @JoinColumn(name = "countyId", referencedColumnName = "id")
+    private County county;
 
     public int getId() {
         return id;
@@ -42,13 +48,14 @@ public class Record implements Serializable {
         this.id = id;
     }
 
-    public int getCountyID() {
-        return countyId;
+    public County getCounty() {
+        return county;
     }
 
-    public void setCountyID(int countyID) {
-        this.countyId = countyID;
+    public void setCounty(County county) {
+        this.county = county;
     }
+
 
     public int getCustomersServed() {
         return customersServed;
@@ -58,7 +65,7 @@ public class Record implements Serializable {
         this.customersServed = customersServed;
     }
 
-    public int getCusomtersWithoutPower() {
+    public int getCustomersWithoutPower() {
         return customersWithoutPower;
     }
 
@@ -74,6 +81,15 @@ public class Record implements Serializable {
         this.time = time;
     }
     
+    public String getFormattedDate(){
+        String out = null;
+        try{
+            out = getTime().toLocalDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return out;
+    }
     
     
 }

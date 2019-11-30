@@ -6,6 +6,7 @@
 package Database;
 
 import Database.Entities.Record;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,10 @@ import java.util.List;
  */
 public class dbTest {
     public static void main(String[] args) {
-        List<Record> l = DatabaseManager.getAllRecords();
-        System.out.println("done");
+        List<Integer> ids = new ArrayList<>();
+        ids.add(1);
+        ids.add(2);
+        List<Record> l = DatabaseManager.getRecordsByCounties(ids, new PaginationSettings(1,15));
+        System.out.println("done with " + l.size() + " results");
     }
 }

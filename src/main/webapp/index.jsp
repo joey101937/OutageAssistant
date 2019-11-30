@@ -5,78 +5,92 @@
         <link rel="stylesheet" type="text/css" href="base.css">
 	<link rel="icon" href="images/nc.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
+		<style>
+				.annotation-note-label {
+					font-size: 10px;
+					fill: #000;
+				}
+			</style>
+	</head>
 
     <body>
 	<header>
 		<h1 id="title">Outage Assistant</h1>
-		<h3 id="subtitle">subtitle goes here :)</h3>
+		<h3 id="subtitle">Outage Information for the Carolinas</h3>
 	</header>
 
-	<ul id="nav">
-		<li><a href="index.jsp">CURRENT</a></li>
-		<li><a href="search.jsp">SEARCH</a></li>
-		<li><a href="about.jsp">ABOUT</a></li>
-	</ul>
+        <%@include file="topNav.jsp"%>
 
 	<br>
 	
 	<main>
 	
-		<h2 align="center">OUTAGE VIEWER</h2>
+		<h2 align="center">OUTAGE MAP</h2>
 		<br>
-		<h3>THIS BLOCK OF TEXT IS TO SIMULATE THE MAP</h3>
-		<p>An enigmatic animation which leaves much to wonder, this film is set up magnificently from beginning to end. From the unique art style of Yoshitaka Amano to the soundtrack by Kano Yoshihiro, this film already grabs your attention by the sheer force of its aesthetic composition. One cannot miss the drab colors, the emptiness of the world, the melancholic and tired faces of the two main characters, the grandiose semi-Gothic architecture and choir music, and the clashing aesthetics of a futuristic past. The enigmatic religious symbolism of  certain designs, and the sparse dialogue begs one to draw upon everything in the film to attempt to make sense of it. This film is at heart existential, it is about us as individuals as well as the grand meaning of our place in the world and the world itself.Because the film is so thematic, I won’t be dealing with it in the order of how things appear, but by theme; thus, this shall be chronologically disordered and assumes you have watched the film already. I am, for the 		most part, drawing upon philosophical ideas of Hegel, Heidegger, and Buddhism for interpretative purposes. Right after the closeup of the bird gestating inside the egg, we are transitioned, via a direct cut with a gust of wind and the sound of a bird taking off in quick flight unseen, to one of the main characters: the man. The scene is one with a red sky on what seems like a stage, behind him gigantic gears. The stage of life. The floor is tiled with black and white squares, and a gigantic machine that seems like an antenna communication device tower behind him. In Buddhism, Samsara is but a dream, an ephemeral appearance, a mere play of reality. All the action, all the actors, all that is experienced is ultimately a mere appearance. All that we seek, any object of desire, is merely a version of a silly game of chasing shadows and attempting to catch them. The world is but a stage of plays, and he is but the first on it—the first act—of many to come. The theme of dream and reality, appearance and truth, re			occurs many times over the film.</p>
-	<br>
-	<h3>THIS IS TO SIMULATE THE TABLE BELOW THE MAP</h3>
-	
-	<table id="current">
-  		<tr>
-    			<th>County</th>
-    			<th>Customers Tracked</th> 
-   			<th>Customers Out</th>
-			<th>Date</th>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
- 		<tr>
-   			<td>blah</td>
-   			<td>blah</td>
-   			<td>23</td>
-			<td>4/23/2019</td>
-  		</tr>
+		<!-- <h3>Outage Visualizations</h3> -->
 
-	</table>
-	<br>
-		<h3>THIS SIMULATES THE WAY IN WHICH SERVLETS WORK</h3>
-	
-        	<form action="HomeServlet" action="exampleAction">
-            		<input type="hidden" name="action" value="someAction">
-            		<input type="submit" value="submit">
-       	 	</form>
+			<svg width="960" height="500"></svg>
+			<script src="https://d3js.org/d3.v4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
 
+			<script>
+					var svg = d3.select("svg");
+					//create projection for map and pass that to the path generator
+					var projection = d3
+						.geoAlbers()
+						.rotate([0, 62, 0]);
+					var path = d3.geoPath(projection);
+					d3.json("ncmap.json", function (error, mapData) {
+						if (error) throw error;
+						var projection = d3
+							.geoAlbers()
+							.rotate([0, 62, 0])
+							.fitSize([d3.select("svg").attr("width")-50, d3.select("svg").attr("height")], mapData);         
+							var path = d3.geoPath(projection);
+						svg
+							.append("g")
+							.selectAll("path")
+							.data(mapData.features)
+							.enter()
+							.append("path")
+							.attr("d", path)
+							.attr("class", "county")
+							.attr("id", function (d) {
+								return d.properties.county;
+							})
+							.attr("fill", "#fff")
+							.style("stroke", "#d3d3d3")
+							.attr("transform", "translate(25, 0)");
+							
+						// make initial annotation estimations and start annotations tool
+						var annotations = mapData.features.map(function (el) {
+							return {
+								note: { label: el.properties.county, orientation: "topBottom"},
+								x: path.centroid(el.geometry)[0],
+								y: path.centroid(el.geometry)[1] - 10
+							}
+						});
+						
+						window.makeAnnotations = d3.annotation()
+							.type(d3.annotationLabel)
+							.annotations(annotations)
+							.disable(["connector", "subject"])
+							//.editMode(true);
+						svg.append("g")
+							.attr("class", "annotation-group")
+							.attr("transform", "translate(25, 0)")
+							.call(makeAnnotations);
+						//document.getElementById("editMode").addEventListener("click", function () {
+						//	makeAnnotations.editMode(!makeAnnotations.editMode()).update(); 
+						//});
+					});
+				</script> 
+		<br>
+	<h3>Past Month's Outages</h3>
+	
+	<%@ include file="currentOutagesTable.jsp" %>
+        
+	<br>
 	</main>
 
 	<footer>
@@ -84,7 +98,7 @@
         	<p>
             	<b> All content on this page is used for educational, non-profit purposes</b>
         	</p>
-        	<p>©2018 Group 8, All Rights Reserved</p>
+        	<p>�2019 Group 8, All Rights Reserved</p>
 		<br>
     	</footer>
 	<br>
