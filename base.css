@@ -1,7 +1,7 @@
 /* HEADER */
 
 #title {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: Verdana;
 	text-align: center;
 	color: #007884;
 	font-weight: bold;
@@ -10,7 +10,7 @@
 }
 
 #subtitle {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: Verdana;
 	text-align: center;
 	font-weight: bold;
 	display: block;
@@ -39,7 +39,7 @@
 }
 
 a {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: Verdana;
 	color:#13464B;
 	text-decoration:none;
 	font-weight:bold;
@@ -49,22 +49,10 @@ a:hover {
 	text-decoration:underline;
 }
 
-p {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h3 {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-li {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 /* MAIN CONTENT AREA */
 
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	position: relative;
 	min-height: 100vh;
 }
@@ -88,18 +76,14 @@ th, td {
   padding: 15px;
   text-align: left;
 }
-table tr:nth-child(even) {
+table#current tr:nth-child(even) {
   background-color: #eee;
 }
-table tr:nth-child(odd) {
+table#current tr:nth-child(odd) {
  background-color: #fff;
 }
-table th a{
-  color: white;
-}
-
-table th {
-     background-color: black;
+table#current th {
+  background-color: black;
   color: white;
 }
 
@@ -157,7 +141,6 @@ form.search::after {
 /* FOOTER */
 
 footer {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   	position: absolute;
   	bottom: 0;
   	width: 100%;
@@ -173,46 +156,3 @@ footer {
 	text-align: center;
 	font-size: 12px;*/
 }
-
-/* TABS */
-.tab {
-	overflow: hidden;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
-  }
-  
-  /* Style the buttons that are used to open the tab content */
-  .tab button {
-	background-color: inherit;
-	float: left;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	transition: 0.3s;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-	background-color: #ddd;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
-	background-color: #ccc;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
-	display: none;
-	padding: 6px 12px;
-	border: 1px solid #ccc;
-	border-top: none;
-	animation: fadeEffect 1s;
-  }
-
-/* Go from zero to full opacity */
-  @keyframes fadeEffect {
-	from {opacity: 0;}
-	to {opacity: 1;}
-  }
