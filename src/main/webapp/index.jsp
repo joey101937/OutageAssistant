@@ -29,7 +29,7 @@
 		<br>
 		<!-- <h3>Outage Visualizations</h3> -->
 
-			<svg width="960" height="500"></svg>
+			<svg width="960" height="500" align="center"></svg>
 			<script src="https://d3js.org/d3.v4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
 
@@ -58,7 +58,26 @@
 							.attr("id", function (d) {
 								return d.properties.county;
 							})
-							.attr("fill", "#fff")
+							.attr("fill", function(d){
+                                                            switch(d.properties.county){
+                                                                case "Alamance": return '#3498eb';
+                                                                case "Buncombe": return '#3498eb';
+                                                                case "Cleveland": return '#3498eb';
+                                                                case "Davidson": return '#3498eb';
+                                                                case "Forsyth": return '#3498eb';
+                                                                case "Johnston": return '#3498eb';
+                                                                case "Mecklenburg": return '#3498eb';
+                                                                case "Moore": return '#3498eb';
+                                                                case "Sampson": return '#3498eb';
+                                                                case "Transylvania": return '#3498eb';
+                                                                case "Wake": return '#3498eb';
+                                                                case "Wilkes": return '#3498eb';
+                                                                case "Greenville": return '#3498eb';
+                                                                case "Pickens": return '#3498eb';
+                                                                case "Spartanburg": return '#3498eb';
+                                                                default: return '#ffffff';
+                                                            }
+                                                        })
 							.style("stroke", "#d3d3d3")
 							.attr("transform", "translate(25, 0)");
 							
