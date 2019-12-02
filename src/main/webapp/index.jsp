@@ -60,21 +60,21 @@
 							})
 							.attr("fill", function(d){
                                                             switch(d.properties.county){
-                                                                case "Alamance": return '#3498eb';
-                                                                case "Buncombe": return '#3498eb';
-                                                                case "Cleveland": return '#3498eb';
-                                                                case "Davidson": return '#3498eb';
-                                                                case "Forsyth": return '#3498eb';
-                                                                case "Johnston": return '#3498eb';
-                                                                case "Mecklenburg": return '#3498eb';
-                                                                case "Moore": return '#3498eb';
-                                                                case "Sampson": return '#3498eb';
-                                                                case "Transylvania": return '#3498eb';
-                                                                case "Wake": return '#3498eb';
-                                                                case "Wilkes": return '#3498eb';
-                                                                case "Greenville": return '#3498eb';
-                                                                case "Pickens": return '#3498eb';
-                                                                case "Spartanburg": return '#3498eb';
+                                                                case "Alamance": return '#2ba2ff';
+                                                                case "Buncombe": return '#38a8ff';
+                                                                case "Cleveland": return '#008fff';
+                                                                case "Davidson": return '#69bbfa';
+                                                                case "Forsyth": return '#69bbfa';
+                                                                case "Johnston": return '#53b3fc';
+                                                                case "Mecklenburg": return '#59b7ff';
+                                                                case "Moore": return '#78c4ff';
+                                                                case "Sampson": return '#78c4ff';
+                                                                case "Transylvania": return '#45aeff';
+                                                                case "Wake": return '#4db2ff';
+                                                                case "Wilkes": return '#78c4ff';
+                                                                case "Greenville": return '#78c4ff';
+                                                                case "Pickens": return '#78c4ff';
+                                                                case "Spartanburg": return '#78c4ff';
                                                                 default: return '#ffffff';
                                                             }
                                                         })
