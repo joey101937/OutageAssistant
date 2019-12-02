@@ -10,7 +10,7 @@
     <body>
 	<header>
 		<h1 id="title">Outage Assistant</h1>
-		<h3 id="subtitle">subtitle goes here :)</h3>
+		<h3 id="subtitle">Outage Information for the Carolinas</h3>
 	</header>
 
 	<%@include file="topNav.jsp"%>
